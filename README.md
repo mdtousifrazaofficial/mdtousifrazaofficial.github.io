@@ -10,8 +10,7 @@
 
 ## 🚀 Live Portfolio
 
-👉 **[View Website](https://mdtousifraza.github.io)**
-
+👉 **[View Website](https://mdtousifrazaofficial.github.io)**
 ---
 
 ## 👨‍💻 About Me
@@ -54,7 +53,7 @@ I specialize in SQL, Excel, Power BI, and Python to analyze datasets, build dash
 ---
 
 ## 📁 Project Structure
-mdtousifraza.github.io/
+mdtousifrazaofficial.github.io/
 │
 ├── index.html
 ├── case-study.html
