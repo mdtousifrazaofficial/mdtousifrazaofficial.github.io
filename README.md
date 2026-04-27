@@ -1,7 +1,80 @@
 # 🌐 Md Tousif Raza — Data Analyst Portfolio
 
+---
+
 ## 🌐 Portfolio Preview
 
 ![Portfolio Preview](./assets/preview.png)
 
-Welcome to my portfolio website showcasing my work in data analysis, dashboards, and business insights.
+---
+
+## 🚀 Live Portfolio
+
+👉 **[View Website](https://mdtousifraza.github.io)**
+
+---
+
+## 👨‍💻 About Me
+
+I am a Data Analyst focused on transforming raw data into actionable insights that drive business decisions.  
+I specialize in SQL, Excel, Power BI, and Python to analyze datasets, build dashboards, and uncover meaningful trends.
+
+---
+
+## 📊 Featured Projects
+
+### 🔹 Zomato Data Analysis
+- Analyzed restaurant data to identify performance trends and customer behavior  
+- Used SQL for data cleaning and querying  
+- Built dashboards to visualize key insights  
+- **Impact:** Identified top-performing restaurants and key factors affecting ratings  
+
+---
+
+### 🔹 Sales Dashboard (Excel / Power BI)
+- Developed interactive dashboards to monitor sales performance  
+- Tracked KPIs such as revenue, growth, and regional trends  
+- **Impact:** Enabled better decision-making through clear visual insights  
+
+---
+
+### 🔹 SQL Case Study
+- Solved real-world business problems using advanced SQL queries  
+- Applied joins, aggregations, and window functions  
+- **Impact:** Extracted actionable insights for business optimization  
+
+---
+
+## 🛠️ Skills & Tools
+
+- **Languages:** SQL, Python (Pandas)  
+- **Tools:** Excel, Power BI, Tableau  
+- **Core Skills:** Data Cleaning, Data Analysis, Data Visualization, Problem Solving  
+
+---
+
+## 📁 Project Structure
+mdtousifraza.github.io/
+│
+├── index.html
+├── case-study.html
+├── css/
+├── js/
+├── assets/
+├── data.json
+
+---
+## 📬 Contact
+📧 Email: tousifraza105@gmail.com  
+
+---
+
+## 💡 Purpose
+This portfolio demonstrates my ability to:
+- Analyze real-world datasets  
+- Extract meaningful insights  
+- Present data in a clear and impactful way  
+
+---
+
+⭐ If you find this useful, feel free to explore and connect!
