@@ -1,0 +1,35 @@
+{
+    "resume_link": "#",
+    "projects": [
+        {
+            "id": 1,
+            "title": "Credit Risk & Loan Default Prediction",
+            "tags": "SQL, Python, Power BI",
+            "problem": "A Fintech NBFC faced a 14% NPA rate and needed to identify high-risk segments without overhauling core ML infrastructure.",
+            "approach": "Extracted 50K+ records via PostgreSQL. Engineered a behavioral risk score using Python (Random Forest) and built a dynamic monitoring dashboard in Power BI.",
+            "impact": "Built a predictive model that identified high-risk segments, demonstrating a potential 11% NPA reduction strategy.",
+            "link": "#",
+            "theme": "blue"
+        },
+        {
+            "id": 2,
+            "title": "E-Commerce Funnel & Revenue Leakage",
+            "tags": "SQL, Tableau, Funnel Analysis",
+            "problem": "Despite a 40% YoY traffic increase, checkout conversion remained stagnant.",
+            "approach": "Wrote complex SQL window functions to map the user journey (View → Cart → Checkout). Visualized drop-off points in Tableau.",
+            "impact": "Formulated a UI redesign strategy targeting a simulated ₹2.3Cr/month revenue leakage to lift conversions.",
+            "link": "#",
+            "theme": "orange"
+        },
+        {
+            "id": 3,
+            "title": "SaaS Customer Churn Prediction",
+            "tags": "Python, Power BI, Predictive Modeling",
+            "problem": "A B2B SaaS platform was bleeding accounts at an unsustainable 5.2% monthly churn rate.",
+            "approach": "Analyzed login frequency and feature adoption using Python. Created an Account Health Score matrix deployed via Power BI.",
+            "impact": "Prototyped an early-warning system capable of identifying 73% of at-risk accounts 30 days in advance.",
+            "link": "#",
+            "theme": "green"
+        }
+    ]
+}
