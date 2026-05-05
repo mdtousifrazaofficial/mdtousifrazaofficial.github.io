@@ -57,10 +57,36 @@ mdtousifrazaofficial.github.io/
 │
 ├── index.html
 ├── case-study.html
-├── css/
-├── js/
-├── assets/
 ├── data.json
+├── README.md
+├── preview.png
+│
+├── assets/
+│   ├── apex_img/
+│   │   ├── 1.png
+│   │   ├── 2.png
+│   │   ├── 3.png
+│   │   ├── 4.png
+│   │   ├── 5.png
+│   │   ├── 6.png
+│   │   ├── 7.png
+│   │   └── demo.png
+│   │
+│   ├── zomato_img/
+│   │   ├── Insights.png
+│   │   ├── Overview.png
+│   │   ├── Recommendations.png
+│   │  
+│   │
+│   └── MTR - Data Analyst.pdf
+│
+├── css/
+│   ├── motion.css
+│   └── style.css
+│
+└── js/
+    ├── motion.js
+    └── script.js
 
 ---
 ## 📬 Contact
