@@ -58,6 +58,14 @@
         /* Bottom CTA */
         .cs-cta { text-align: center; padding: 80px 0; border-top: 1px solid var(--border-color); }
         .cs-cta h3 { font-size: 1.5rem; margin-bottom: 24px; }
+
+        /* Carousel Styles */
+        .carousel-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--border-color); margin: 0 6px; cursor: pointer; transition: all 0.3s; }
+        .carousel-dot.active { background: var(--accent-primary); transform: scale(1.3); box-shadow: 0 0 8px rgba(0,240,255,0.5); }
+        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); border: 1px solid var(--border-color); color: white; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; z-index: 10; transition: all 0.2s; }
+        .carousel-btn:hover { background: rgba(0, 240, 255, 0.15); border-color: var(--accent-primary); color: var(--accent-primary); }
+        .carousel-btn.prev { left: 16px; }
+        .carousel-btn.next { right: 16px; }
     </style>
 </head>
 <body>
@@ -82,6 +90,7 @@
                 <div class="cs-meta" id="cs-meta"></div>
                 <h1 class="cs-title" id="cs-title"></h1>
                 <p class="cs-summary" id="cs-summary"></p>
+                <div id="cs-actions" style="margin-top: 32px; display: flex; gap: 16px; align-items: center;"></div>
             </div>
         </section>
 
@@ -94,6 +103,12 @@
                     <h4>TL;DR</h4>
                     <p id="cs-tldr"></p>
                 </div>
+            </div>
+
+            <!-- Dashboard Preview -->
+            <div class="cs-section" id="cs-preview-section" style="display: none;">
+                <div class="cs-section-label">Dashboard Preview</div>
+                <div id="cs-previews" style="display: flex; flex-direction: column; gap: 32px; margin-top: 24px;"></div>
             </div>
 
             <!-- Key Metrics -->
@@ -150,87 +165,75 @@
             const projects = [
                 {
                     id: 1,
-                    title: "Credit Risk & Loan Default Prediction",
-                    tags: ["SQL", "Python", "Power BI"],
-                    theme: "blue",
-                    category: "FINTECH",
+                    title: "Zomato Data Analysis Dashboard",
+                    tags: ["DAX", "Python", "Power BI"],
+                    theme: "red",
+                    category: "FOOD DELIVERY",
                     duration: "4 WEEKS",
                     role: "DATA ANALYST",
-                    summary: "Analyzed 50,000+ loan records for a Fintech NBFC to identify high-risk borrower segments and build a predictive model that could reduce Non-Performing Assets by 11%.",
-                    tldr: "Built a behavioral risk scoring model using Random Forest that identified the top 3 high-risk borrower segments, enabling proactive collection strategies and demonstrating an 11% NPA reduction potential.",
-                    problemTitle: "Rising NPAs Threatening Portfolio Health",
-                    problemText: "A mid-size Fintech NBFC was facing a critical 14% NPA (Non-Performing Asset) rate across its unsecured lending portfolio. Traditional rule-based credit scoring was failing to catch emerging risk patterns, and the company needed a data-driven approach without overhauling their core ML infrastructure.",
-                    challenge: "The core question was: Can we identify which borrower segments are most likely to default BEFORE they miss their first EMI, using only existing transactional and demographic data?",
+                    github: "https://github.com/mdtousifrazaofficial/zomato-data-analysis",
+                    summary: "Analyzed Zomato dataset to uncover insights on restaurant performance, customer behavior, and delivery impact using SQL, Python, and Power BI.",
+                    tldr: "Identified that the top 20% of restaurants contribute to the majority of revenue and faster delivery significantly improves customer retention, providing data-driven recommendations.",
+                    problemTitle: "Optimizing Restaurant & Delivery Performance",
+                    problemText: "Understanding restaurant performance and customer behavior is critical for improving business decisions in the food delivery industry. There was a need to analyze complex Zomato data to identify key factors affecting revenue, customer engagement, and delivery efficiency.",
+                    challenge: "How can we identify top-performing restaurants, analyze customer engagement patterns, and evaluate the true impact of delivery performance on retention?",
                     steps: [
-                        { title: "Data Extraction & Cleaning", desc: "Extracted 50K+ loan records from PostgreSQL. Cleaned missing values, handled outliers in income and loan amount fields, and standardized categorical variables." },
-                        { title: "Feature Engineering", desc: "Created 12 derived features including debt-to-income ratio, payment regularity score, and employment stability index from raw transactional data." },
-                        { title: "Model Development", desc: "Built a Random Forest classifier in Python (scikit-learn) with 78% accuracy. Used SHAP values to identify the top 5 risk-driving features." },
-                        { title: "Dashboard & Reporting", desc: "Deployed findings into a Power BI dashboard with segment-level drill-downs, enabling the collections team to prioritize high-risk accounts." }
+                        { title: "Data Cleaning & EDA", desc: "Used Python in Jupyter Notebooks to clean the raw dataset, handle missing values, and perform exploratory data analysis." },
+                        { title: "SQL Querying", desc: "Wrote PostgreSQL queries to extract key metrics regarding restaurant performance, order frequency, and delivery times." },
+                        { title: "Dashboard Creation", desc: "Built a comprehensive Power BI dashboard featuring Overview, Insights, and Recommendations views to visualize the findings." },
+                        { title: "Business Strategy", desc: "Formulated actionable recommendations focusing on delivery time improvements, high-performing segments, and pricing strategies." }
                     ],
                     metrics: [
-                        { value: "50K+", label: "Records Analyzed" },
-                        { value: "11%", label: "NPA Reduction" },
-                        { value: "78%", label: "Model Accuracy" },
-                        { value: "12", label: "Features Built" }
+                        { value: "20%", label: "Top Restaurants Revenue" },
+                        { value: "100%", label: "Data Pipeline Built" },
+                        { value: "3", label: "Dashboard Views" },
+                        { value: "3", label: "Core Tools" }
                     ],
-                    impact: "The predictive model successfully identified 3 high-risk borrower segments that accounted for 62% of all defaults. This enabled the team to design targeted pre-delinquency interventions, demonstrating a potential 11% reduction in NPA rate — translating to significant portfolio savings.",
-                    tools: ["PostgreSQL", "Python", "Pandas", "Scikit-learn", "SHAP", "Power BI"]
+                    impact: "Delivered an end-to-end data analysis workflow. Formulated business recommendations to improve delivery time to increase customer retention, focus on high-performing restaurant segments, and optimize pricing strategies for better conversion.",
+                    tools: ["DAX", "PostgreSQL", "Python", "Power BI", "Data Visualization"],
+                    previews: [
+                        "assets/zomato_img/Overview.png",
+                        "assets/zomato_img/Insights.png",
+                        "assets/zomato_img/Recommendations.png"
+                    ]
                 },
                 {
                     id: 2,
-                    title: "E-Commerce Funnel & Revenue Leakage Analysis",
-                    tags: ["SQL", "Tableau", "Funnel Analysis"],
-                    theme: "orange",
-                    category: "E-COMMERCE",
-                    duration: "3 WEEKS",
+                    title: "APEX MARKETS — Global Stock Intelligence",
+                    tags: ["Python", "JavaScript", "Data Analytics"],
+                    theme: "purple",
+                    category: "FINANCIAL ANALYTICS",
+                    duration: "4 WEEKS",
                     role: "DATA ANALYST",
-                    summary: "Diagnosed a stagnant checkout conversion rate despite 40% YoY traffic growth by mapping the complete user funnel and identifying ₹2.3Cr/month in revenue leakage.",
-                    tldr: "Used advanced SQL window functions to map the complete user journey from product view to checkout, uncovering that 68% of cart abandonment happened at the payment gateway step — leading to a targeted UI redesign recommendation.",
-                    problemTitle: "Traffic Up, Revenue Flat",
-                    problemText: "An e-commerce platform had invested heavily in marketing, achieving a 40% year-over-year increase in website traffic. However, checkout conversion rates remained stagnant at 2.1%, indicating severe revenue leakage somewhere in the purchase funnel.",
-                    challenge: "Where exactly in the user journey are potential customers dropping off, and what is the estimated revenue impact of each drop-off point?",
+                    github: "https://github.com/mdtousifrazaofficial/APEX-MARKETS-Global-Stock-Intelligence-Dashboard",
+                    summary: "A self-contained, interactive financial analytics dashboard built to surface meaningful patterns across 61 global stocks spanning 25 years of trading data.",
+                    tldr: "Developed an end-to-end stock market dashboard covering the full analytics lifecycle—from cleaning 307,000+ daily records with Python to building an interactive, dependency-free vanilla JS dashboard.",
+                    problemTitle: "Democratizing Financial Analytics",
+                    problemText: "The goal was simple: take messy, real-world stock data and turn it into something a portfolio manager, analyst, or curious investor could actually learn from — without needing an expensive BI tool or a subscription.",
+                    challenge: "How do we build a robust, interactive dashboard to analyze 25 years of global stock data (61 stocks, 307,000+ rows) without relying on any paid BI tools or complex server backends?",
                     steps: [
-                        { title: "Funnel Mapping with SQL", desc: "Wrote complex SQL window functions (LAG, LEAD, ROW_NUMBER) to reconstruct individual user journeys across View → Cart → Checkout → Payment stages." },
-                        { title: "Drop-off Analysis", desc: "Calculated stage-wise conversion rates and identified the payment gateway as the primary bottleneck with a 68% abandonment rate." },
-                        { title: "Cohort Segmentation", desc: "Segmented users by device type, traffic source, and time-of-day to find that mobile users from paid ads had 3x higher drop-off rates." },
-                        { title: "Revenue Impact Modeling", desc: "Built a revenue simulation model estimating ₹2.3Cr/month in recoverable leakage if payment-stage UX was optimized." }
+                        { title: "Data Cleaning & Prep", desc: "Used Python and Julius AI to handle nulls, normalize types, and validate categorical labels across all records." },
+                        { title: "Feature Engineering", desc: "Computed daily percentage returns, annualized volatility scoring, and built per-ticker summary stats (e.g., max drawdown)." },
+                        { title: "Exploratory Analysis", desc: "Performed deep EDA on aggregated metrics to uncover patterns in industry concentration and risk-return profiles." },
+                        { title: "Dashboard Development", desc: "Built a fully browser-native, custom dark-theme dashboard using HTML5, CSS3, Vanilla JavaScript, and Chart.js." }
                     ],
                     metrics: [
-                        { value: "₹2.3Cr", label: "Revenue Leakage" },
-                        { value: "68%", label: "Payment Drop-off" },
-                        { value: "40%", label: "Traffic Growth" },
-                        { value: "3x", label: "Mobile Drop-off" }
+                        { value: "307K+", label: "Data Records" },
+                        { value: "61", label: "Global Stocks" },
+                        { value: "25 Yrs", label: "Market Data" },
+                        { value: "6", label: "Interactive Pages" }
                     ],
-                    impact: "Formulated a data-backed UI redesign strategy targeting the payment gateway step. The analysis showed that simplifying the checkout from 4 steps to 2, and adding UPI as a primary option, could recover up to ₹2.3Cr/month in lost revenue — a recommendation presented with full supporting data.",
-                    tools: ["MySQL", "SQL Window Functions", "Tableau", "Excel", "Google Analytics"]
-                },
-                {
-                    id: 3,
-                    title: "SaaS Customer Churn Prediction System",
-                    tags: ["Python", "Power BI", "Predictive Modeling"],
-                    theme: "green",
-                    category: "B2B SAAS",
-                    duration: "5 WEEKS",
-                    role: "DATA ANALYST",
-                    summary: "Built an early-warning churn prediction system for a B2B SaaS platform that could identify 73% of at-risk accounts 30 days before cancellation.",
-                    tldr: "Developed an Account Health Score combining login frequency, feature adoption, and support ticket patterns to predict churn 30 days in advance with 73% recall, enabling proactive customer success interventions.",
-                    problemTitle: "Unsustainable Monthly Churn Rate",
-                    problemText: "A B2B SaaS platform serving 2,000+ enterprise accounts was experiencing a 5.2% monthly churn rate — well above the industry benchmark of 3%. The Customer Success team was reactive, only engaging after cancellation requests were filed.",
-                    challenge: "Can we build a system that flags at-risk accounts BEFORE they decide to churn, giving the CS team a 30-day intervention window?",
-                    steps: [
-                        { title: "Behavioral Data Analysis", desc: "Analyzed 6 months of login frequency, feature usage depth, and support ticket sentiment for 2,000+ accounts using Python (Pandas)." },
-                        { title: "Health Score Engineering", desc: "Created a composite Account Health Score (0-100) combining 8 behavioral signals including DAU/MAU ratio, feature breadth, and NPS responses." },
-                        { title: "Churn Prediction Model", desc: "Built a Logistic Regression model achieving 73% recall on at-risk accounts, meaning it correctly flagged 3 out of 4 future churners." },
-                        { title: "Power BI Alert Dashboard", desc: "Deployed the Health Score into a Power BI dashboard with automated alerts when accounts dropped below the critical threshold of 40." }
-                    ],
-                    metrics: [
-                        { value: "73%", label: "Churn Recall" },
-                        { value: "30d", label: "Early Warning" },
-                        { value: "2K+", label: "Accounts Tracked" },
-                        { value: "8", label: "Health Signals" }
-                    ],
-                    impact: "Prototyped an early-warning system that could identify 73% of at-risk accounts a full 30 days before cancellation. The Account Health Score dashboard gave the CS team a prioritized list of accounts needing immediate intervention, with the potential to reduce monthly churn from 5.2% to under 3.5%.",
-                    tools: ["Python", "Pandas", "NumPy", "Scikit-learn", "Power BI", "DAX"]
+                    impact: "Successfully built an open-source, fully browser-native analytical tool replacing traditional BI dashboards. Discovered that volatility does not equate to returns, and volume is largely decoupled from long-term performance.",
+                    tools: ["Python", "HTML5", "CSS3", "JavaScript", "Chart.js", "Julius AI", "Claude AI"],
+                    previews: [
+                        "assets/apex_img/1.png",
+                        "assets/apex_img/2.png",
+                        "assets/apex_img/3.png",
+                        "assets/apex_img/4.png",
+                        "assets/apex_img/5.png",
+                        "assets/apex_img/6.png",
+                        "assets/apex_img/7.png"
+                    ]
                 }
             ];
 
@@ -253,9 +256,74 @@
             // Hero
             document.getElementById('cs-title').innerText = project.title;
             document.getElementById('cs-summary').innerText = project.summary;
+            if (project.github) {
+                document.getElementById('cs-actions').innerHTML = `<a href="${project.github}" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-github"></i> View GitHub Repository</a>`;
+            } else {
+                document.getElementById('cs-actions').innerHTML = '';
+            }
 
             // TLDR
             document.getElementById('cs-tldr').innerText = project.tldr;
+
+            // Previews
+            const previewSection = document.getElementById('cs-preview-section');
+            const previewContainer = document.getElementById('cs-previews');
+            if (project.previews && project.previews.length > 0) {
+                previewSection.style.display = 'block';
+                
+                let slidesHTML = '';
+                let dotsHTML = '';
+                
+                project.previews.forEach((img, index) => {
+                    slidesHTML += `
+                        <div class="carousel-slide" style="${index === 0 ? 'display: block;' : 'display: none;'}">
+                            <img src="${img}" alt="Dashboard Preview ${index + 1}" style="width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: var(--shadow-lg);">
+                        </div>
+                    `;
+                    dotsHTML += `
+                        <span class="carousel-dot ${index === 0 ? 'active' : ''}" onclick="window.currentCarouselIndex = ${index}; window.updateCarousel()"></span>
+                    `;
+                });
+                
+                previewContainer.innerHTML = `
+                    <div class="carousel-wrapper" style="position: relative; max-width: 100%; overflow: hidden; border-radius: 8px;">
+                        ${slidesHTML}
+                        <button class="carousel-btn prev" onclick="window.changeCarousel(-1)">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn next" onclick="window.changeCarousel(1)">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="carousel-dots" style="text-align: center; margin-top: 20px;">
+                        ${dotsHTML}
+                    </div>
+                `;
+                
+                window.currentCarouselIndex = 0;
+                window.totalCarouselSlides = project.previews.length;
+                window.updateCarousel = function() {
+                    const slides = document.querySelectorAll('.carousel-slide');
+                    const dots = document.querySelectorAll('.carousel-dot');
+                    slides.forEach((slide, i) => slide.style.display = i === window.currentCarouselIndex ? 'block' : 'none');
+                    dots.forEach((dot, i) => {
+                        if (i === window.currentCarouselIndex) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                };
+                window.changeCarousel = function(step) {
+                    window.currentCarouselIndex += step;
+                    if (window.currentCarouselIndex >= window.totalCarouselSlides) window.currentCarouselIndex = 0;
+                    if (window.currentCarouselIndex < 0) window.currentCarouselIndex = window.totalCarouselSlides - 1;
+                    window.updateCarousel();
+                };
+            } else {
+                previewSection.style.display = 'none';
+                previewContainer.innerHTML = '';
+            }
 
             // Metrics
             const metricsContainer = document.getElementById('cs-metrics');
