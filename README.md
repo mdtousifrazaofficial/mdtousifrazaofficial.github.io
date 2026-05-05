@@ -4,7 +4,7 @@
 
 ## 🌐 Portfolio Preview
 
-![Portfolio Preview](./assets/preview.png)
+![Portfolio Preview](./preview.png)
 
 ---
 
